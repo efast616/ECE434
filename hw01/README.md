@@ -13,3 +13,11 @@ To clear press c
 To quit press q
 
 note: size must be a number less than 10
+
+
+## Prof. Yoder's comments
+
+Everything looks good.  Nice etch-a-sketch.
+I don't see your name on gitLearnFork
+
+Grade:  9/10
