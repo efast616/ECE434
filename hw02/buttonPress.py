@@ -20,10 +20,10 @@ def my_callback(inputbutton):
 	if inputbutton == "P8_14":
 		GPIO.output("P8_17", GPIO.input("P8_14"))
 
-GPIO.add_event_detect("P8_8", GPIO.BOTH, callback = my_callback, bouncetime=200)
-GPIO.add_event_detect("P8_10", GPIO.BOTH, callback = my_callback, bouncetime=200)
-GPIO.add_event_detect("P8_12", GPIO.BOTH, callback = my_callback, bouncetime=200)
-GPIO.add_event_detect("P8_14", GPIO.BOTH, callback = my_callback, bouncetime=200)
+GPIO.add_event_detect("P8_8", GPIO.BOTH, callback = my_callback, bouncetime=20)
+GPIO.add_event_detect("P8_10", GPIO.BOTH, callback = my_callback, bouncetime=20)
+GPIO.add_event_detect("P8_12", GPIO.BOTH, callback = my_callback, bouncetime=20)
+GPIO.add_event_detect("P8_14", GPIO.BOTH, callback = my_callback, bouncetime=20)
 
 while True:
 	continue
