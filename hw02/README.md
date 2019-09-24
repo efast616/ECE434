@@ -8,3 +8,10 @@ To run the etchAsketchWbuttons.py use the following command
 ./etchAsketchWbuttons.py --size=8 
 
 size can be adjusted but must be smaller than 10
+
+## Prof. Yoder's comments
+
+etch-a-sketch looks good.
+Toggle timing is missing.
+
+Grade:  5/10
