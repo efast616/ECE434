@@ -16,13 +16,13 @@ GPIO.add_event_detect("P8_16", GPIO.RISING, callback=my_callback, bouncetime=200
 GPIO.add_event_detect("P8_18", GPIO.RISING, callback=my_callback, bouncetime=200)
 
 def my_callback(inputbutton):
-	if(inputbutton == "P8_15")
+	if(inputbutton == "P8_15"):
 		GPIO.output("P8_15", GPIO.HIGH)
-	if(inputbutton == "P8_17")
+	if(inputbutton == "P8_17"):
 		GPIO.output("P8_17", GPIO.HIGH)
-	if(inputbutton == "P8_16")
+	if(inputbutton == "P8_16"):
 		GPIO.output("P8_16", GPIO.HIGH)
-	if(inputbutton == "P8_18")
+	if(inputbutton == "P8_18"):
 		GPIO.output("P8_18", GPIO.HIGH)
 
 while True:
