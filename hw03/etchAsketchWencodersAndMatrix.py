@@ -27,6 +27,8 @@ myEncodery = RotaryEncoder(eQEP1)
 myEncodery.setAbsolute()
 myEncodery.enable()
 
+GPIO.setup("P8_7", GPIO.IN)
+
 cur_positionx = myEncoderx.position
 cur_positiony = myEncodery.position
 
@@ -66,7 +68,11 @@ while True:
 		column = 2**ledy
 		row = 2*ledx
 		ledMatrix[row]= ledMatrix[row] | column
-	
+	if GPIO.input("P8_7"):
+		ledMatrix = [0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00]
+		ledx=0
+		ledy=0
+
 	myEncoderx.position=0
 	myEncodery.position=0
 				
