@@ -2,9 +2,9 @@
 import argparse
 import curses
 import Adafruit_BBIO.GPIO as GPIO
-from Adagruit_BBIO.Encoder import RotaryEncoder, eQEP1, eQEP2
+from Adafruit_BBIO.Encoder import RotaryEncoder, eQEP1, eQEP2b
 import smbus
-import OS
+import os
 import time
 
 os.system("config-pin P8_33 qep")
@@ -13,12 +13,12 @@ os.system("config-pin P8_11 gpio")
 os.system("config-pin P8_12 gpio")
 os.system("config-pin P8_41 qep")
 os.system("config-pin P8_42 qep")
-    
+ 
 i2cbus= smbus.SMBus(2)
 led_addr= 0x70
-bus.write_byte_data(led_addr, 0x21, 0)
-bus.write_byte_data(led_addr, 0x81, 0)
-bus.write_byte_data(led_addr, 0xe7, 0)
+i2cbus.write_byte_data(led_addr, 0x21, 0)
+i2cbus.write_byte_data(led_addr, 0x81, 0)
+i2cbus.write_byte_data(led_addr, 0xe7, 0)
 
 myEncoderx = RotaryEncoder(eQEP2b)
 myEncoderx.setAbsolute()
@@ -26,6 +26,8 @@ myEncoderx.enable()
 myEncodery = RotaryEncoder(eQEP1)
 myEncodery.setAbsolute()
 myEncodery.enable()
+
+GPIO.setup("P8_7", GPIO.IN)
 
 cur_positionx = myEncoderx.position
 cur_positiony = myEncodery.position
@@ -48,28 +50,32 @@ while True:
 	if myEncodery.position>0:
 		ledy+=1
 		if ledy>7:
-       	        	ledy=7
+			ledy=7
 		column = 2**ledy
 		row = 2*ledx
 		ledMatrix[row]= ledMatrix[row] | column
-       	if myEncoderx.position<0:
+	if myEncoderx.position<0:
 		ledx-=1
 		if ledx<0:
 			ledx=0
 		column = 2**ledy
 		row = 2*ledx
 		ledMatrix[row]= ledMatrix[row] | column
-       	if myEncoderx.position>0:
+	if myEncoderx.position>0:
 		ledx+=1
 		if ledx>7:
-			ledx=7	
+			ledx=7
 		column = 2**ledy
 		row = 2*ledx
 		ledMatrix[row]= ledMatrix[row] | column
-	
+	if GPIO.input("P8_7"):
+		ledMatrix = [0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00]
+		ledx=0
+		ledy=0
+
 	myEncoderx.position=0
 	myEncodery.position=0
 				
-	bus.write_i2c_block_data(led_addr, 0, ledMatrix)
-
+	i2cbus.write_i2c_block_data(led_addr, 0, ledMatrix)
+	time.sleep(.1)
 
