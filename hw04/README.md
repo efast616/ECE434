@@ -10,3 +10,5 @@ See the memory map below
 |GPIO3  |0X481a_E000  |0x481A_EFFF  |
 
 The rotated pictures of boris are shown in the files named according to text and rotation. 
+
+The gpiotoggle file turns on the on board LEDs when a button is pressed. Two different buttons control two different LEDs.
