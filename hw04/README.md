@@ -12,3 +12,11 @@ See the memory map below
 The rotated pictures of boris are shown in the files named according to text and rotation. 
 
 The gpiotoggle file turns on the on board LEDs when a button is pressed. Two different buttons control two different LEDs.
+
+## Prof. Yoder's comments
+How fast could you toggle the output?
+I wanted to see Boris rotated on the LCD display.
+
+
+Late: -2
+Grade:  7/10
