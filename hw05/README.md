@@ -1,4 +1,4 @@
-after running build kernel the first time the bone no longer boots from the SD card
+after running build kernel the first time the bone no longer boots from the SD card so this homework took very long to complete
 
 Project Idea
 Connor and I are planning on building a tank that can potentially be conrolled by a phone app
