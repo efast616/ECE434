@@ -1,3 +1,4 @@
+
 1. Julia Cartwright works at National instruments
 
 2. PREEMT_RT is a real time kernel patch that embedded projects use for a real time operating system
@@ -25,3 +26,11 @@
 10. the low priority interupt is keeping the external event from firing
 
 11. the external event can start sooner because of the irq threads this is due to threads being able to be preempted
+
+
+For the plots I used the command
+	
+	stress --cpu 1 --io 1 --vm 1
+
+The RT kernel does have a bounded latency and this can be seen by the spikes that are farther along the x axis in teh loaded case
+
