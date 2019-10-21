@@ -55,3 +55,17 @@ bone$ dmesg -H | tail -8
 
 Part 3
 
+bone$ make
+bone$ sudo insmod gpio_test.ko
+bone$ tail -f /var/log/kern.log
+	Oct 21 03:02:12 beaglebone kernel: [10426.297824] EBBChar: device class registered correctly
+	Oct 21 03:02:12 beaglebone kernel: [10426.298137] EBBChar: device class created correctly
+	Oct 21 03:02:51 beaglebone kernel: [10464.982927] EBBChar: Device has been opened 1 time(s)
+	Oct 21 03:02:57 beaglebone kernel: [10471.433185] EBBChar: Received 14 characters from the user
+	Oct 21 03:03:01 beaglebone kernel: [10475.660179] EBBChar: Sent 14 characters to the user
+	Oct 21 03:03:01 beaglebone kernel: [10475.660887] EBBChar: Device successfully closed
+	Oct 21 03:52:30 beaglebone kernel: [13444.424681] GPIO_TEST: Initializing the GPIO_TEST LKM
+	Oct 21 03:52:30 beaglebone kernel: [13444.424754] GPIO_TEST: The button state is currently: 0
+	Oct 21 03:52:30 beaglebone kernel: [13444.424766] GPIO_TEST: The button is mapped to IRQ: 126
+	Oct 21 03:52:30 beaglebone kernel: [13444.424865] GPIO_TEST: The interrupt request result is: 0
+

@@ -1,21 +1,6 @@
--include ./path.mak
+obj-m+=gpio_test.o
 
-CC := $(LINUXarm_GCC)
-CFLAGS := -g
-LINKER_FLAGS := -lstdc++
-
-all: app.arm
-
-app.arm: app.o
-	$(CC) $(CFLAGS) $(LINKER_FLAGS) $^ -o $@
-	@echo; echo $@ successfully create; echo
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
-test:
-	@echo CC = $(CC)
-
+all:
+	make -C /lib/modules/$(shell uname -r)/build/ M=$(PWD) modules
 clean:
-	rm -rf  app.o
-	rm -rf app.arm
+	make -C /lib/modules/$(shell uname -r)/build/ M=$(PWD) clean
