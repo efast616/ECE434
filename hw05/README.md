@@ -27,3 +27,31 @@ Bone Output
 	This address (0x442010) is in our bss section
 	This address (0x442008) is in our data section	
 
+Kernel Modules
+
+
+Part 1
+bone$ modinfo hello.ko
+bone$ insmod hello.ko name="Eric"
+bone$ dmesg -H | tail -2
+	[  +0.006429] EBB: Hello Eric from the BBB LKM!
+	[ +19.728010] EBB: Goodbye Eric from the BBB LKM!
+
+
+
+Part 2
+bone$ sudo insmod ebbchar.ko
+bone$ dmesg -H | tail -4	
+bone$ sudo ./test
+bone$ dmesg -H | tail -8
+	[Oct21 03:02] EBBChar: Initializing the EBBChar LKM
+	[  +0.000100] EBBChar: registered correctly with major number 240
+	[  +0.000118] EBBChar: device class registered correctly
+	[  +0.000313] EBBChar: device class created correctly
+	[ +38.684790] EBBChar: Device has been opened 1 time(s)
+	[  +6.450258] EBBChar: Received 14 characters from the user
+	[Oct21 03:03] EBBChar: Sent 14 characters to the user
+	[  +0.000708] EBBChar: Device successfully closed
+
+Part 3
+
