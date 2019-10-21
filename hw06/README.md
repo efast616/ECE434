@@ -28,7 +28,7 @@
 11. the external event can start sooner because of the irq threads this is due to threads being able to be preempted
 
 
-For the plots I used the command
+For the plots I used the folowing command as a load
 	
 	stress --cpu 1 --io 1 --vm 1
 
