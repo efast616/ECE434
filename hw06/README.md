@@ -28,8 +28,7 @@
 11. the external event can start sooner because of the irq threads this is due to threads being able to be preempted
 
 
-<<<<<<< HEAD
-output 
+HEAD output 
 
 	real	1m40.190s
 	
@@ -43,5 +42,3 @@ For the plots I used the folowing command as a load
 	stress --cpu 1 --io 1 --vm 1
 
 The RT kernel does have a bounded latency and this can be seen by the spikes that are farther along the x axis in teh loaded case
->>>>>>> c09f44ac0bb5f77dd60b083d845a53efa668aabc
-
