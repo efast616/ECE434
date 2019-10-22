@@ -25,3 +25,14 @@
 10. the low priority interupt is keeping the external event from firing
 
 11. the external event can start sooner because of the irq threads this is due to threads being able to be preempted
+
+
+output 
+
+	real	1m40.190s
+	
+	user	0m0.503s
+
+	sys	0m3.421s
+
+
