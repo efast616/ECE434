@@ -42,3 +42,12 @@ For the plots I used the folowing command as a load
 	stress --cpu 1 --io 1 --vm 1
 
 The RT kernel does have a bounded latency and this can be seen by the spikes that are farther along the x axis in teh loaded case
+
+## Prof. Yoder's comments
+Looks good.  You loaded plot doesn't look right.  I'd expect the RT kernel to be
+much more bounded.
+
+Late: -1
+Grade:  9/10
+
+Project Wiki is started  10/10

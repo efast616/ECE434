@@ -105,3 +105,11 @@ bone$ tail -f /var/log/kern.log
 	Oct 21 03:52:30 beaglebone kernel: [13444.424865] GPIO_TEST: The interrupt request result is: 0
 
 
+## Prof. Yoder's comments
+Sorry it took so long.  Many details to be tracked.
+Looks good. 
+
+Late: -2
+Grade:  8/10
+
+Project Wiki is started  10/10

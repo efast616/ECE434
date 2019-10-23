@@ -3,3 +3,9 @@ the file leds.js has a button that controls one of the on board LEDs, it also ha
 by a button
 
 There is a slider that controls the brightness of an external LED 
+
+## Prof. Yoder's comments
+Looks good. 
+
+Grade:  10/10
+
