@@ -9,18 +9,21 @@ PWM Generator
 		config-pin P9_31 pruout
 		export PRUN=0	
 		make
+		
+	as can be seen the frequency is 50MHz and the waveform is symmetrical
 
 ![](hw08_part2_E.png)
 
 Controlling the PWM Frequency
 
 	P9_28-P9_31 are being driven
-	The highest frequency is 
-	There is jitter and the STD deviation is
+	There is jitter
 
 ![](tek00002_4channel_E.png)
 
 Reading an Input at Regular Intervals
+
+	The delay can be seen on the scope and is 56.6 nanoseconds
 
 ![](tek00004_reading_input_E.png)
 
