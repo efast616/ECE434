@@ -9,6 +9,8 @@ PWM Generator
 		config-pin P9_31 pruout
 		export PRUN=0	
 		make
+		
+![](hw08_part2_E)
 
 Controlling the PWM Frequency
 
