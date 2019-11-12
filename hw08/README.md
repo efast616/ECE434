@@ -31,6 +31,7 @@ Reading an Input at Regular Intervals
 
 ## Prof. Yoder's comments
 
-Not started yet... 
+Looks good.  
 
-Grade:  0/10
+Late: -1
+Grade:  9/10
