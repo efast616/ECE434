@@ -1,34 +1,56 @@
 #!/usr/bin/env python3
-
-#import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 import time
-import BlynkLib
+import blynklib
 
-BLYNK_AUTH= 'N1px31-__MUtyURliOoGUridpQrAvlc3'
+BLYNK_AUTH= 'rtzVtLB2FQOCvrG16EfxvZPCh7KaFZ-I'
 
-blynk = BlynkLib.Blynk(BLYNK_AUTH)
+blynk = blynklib.Blynk(BLYNK_AUTH)
 
-#GPIO.setmode(GPIO.BOARD)
-#GPIO.setup(19, GPIO.OUTPUT)
-#GPIO.setup(20, GPIO.OUTPUT)
-#GPIO.setup(21, GPIO.OUTPUT)
-#GPIO.setup(22, GPIO.OUTPUT)
+GPIO.setmode(GPIO.BOARD)
 
-frequencyA=0
-frequencyB=0
-#pwm.start(0)
+#check your rasberrry pi for these pin numbers
 
-#@blynk.on('read V3')
-def v3_write_handler(value):
-#	frequencyA = blynk.virtual
-	print('current slider value: {}'.format(value[0])
-#	frequencyA = 1/(args[0])    	#try this line if it is not working chart of input signals says 1/PWM
+GPIO.setup(11, GPIO.OUT)	#input 1 motor 1
+GPIO.setup(13, GPIO.OUT)	#input 2 motor 1
+GPIO.setup(15, GPIO.OUT)	#input 1 motor 2
+GPIO.setup(16, GPIO.OUT)	#input 2 motor 2
 
-#@blynk.handle_event('read V4')
+@blynk.handle_event('write V3')
+def write_virtual_pin_handler(pin, value):
+	print(value[0])
 
-#def v4_write_handler(value):
-#	frequencyB = args[0]
-#	frequencyB = 1/args[0]		#try this line if it is not working chart of input signals says 1/PWM
+@blynk.handle_event('write V4')
+def write_virtual_pin_handler(pin, value):
+	print(value[0])
+
+@blynk.handle_event('write V5')			#drive the tank forward
+def write_virtual_pin_handler(pin, value):
+	GPIO.output(11, GPIO.HIGH)
+	GPIO.output(13, GPIO.LOW)
+	GPIO.output(15, GPIO.HIGH)
+	GPIO.output(16, GPIO.LOW)
+
+@blynk.handle_event('write V6')			#drive the tank backward
+def write_virtual_pin_handler(pin, value):
+        GPIO.output(11, GPIO.LOW) 
+        GPIO.output(13, GPIO.HIGH)
+	GPIO.output(15, GPIO.LOW) 
+        GPIO.output(16, GPIO.HIGH)
+
+@blynk.handle_event('write V7')			#turn towards motor 2 side
+def write_virtual_pin_handler(pin, value):
+        GPIO.output(11, GPIO.HIGH) 
+        GPIO.output(13, GPIO.LOW)
+	GPIO.output(15, GPIO.LOW) 
+        GPIO.output(16, GPIO.HIGH)
+
+@blynk.handle_event('write V8')
+def write_virtual_pin_handler(pin, value):	#turn towards motor 1 side
+        GPIO.output(11, GPIO.LOW)
+        GPIO.output(13, GPIO.HIGH)
+	GPIO.output(15, GPIO.HIGH)
+        GPIO.output(16, GPIO.LOW)
 
 while True:
 	blynk.run()
@@ -38,6 +60,3 @@ while True:
 #	GPIO.PWM(21, frequencyB)
 #	GPIO.PWM(22, frequencyB)
 #	time.sleep(10)
-	print(frequencyA)		#debug print statements
-	print(", ")			#debug print statements
-	print(frequencyB)
