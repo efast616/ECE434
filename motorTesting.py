@@ -18,14 +18,16 @@ frequencyA=0
 frequencyB=0
 #pwm.start(0)
 
-@blynk.on("V3")
+#@blynk.on('read V3')
 def v3_write_handler(value):
-	frequencyA = value[0]
+#	frequencyA = blynk.virtual
+	print('current slider value: {}'.format(value[0])
 #	frequencyA = 1/(args[0])    	#try this line if it is not working chart of input signals says 1/PWM
 
-@blynk.on("V4")
-def v4_write_handler(value):
-	frequencyB = args[0]
+#@blynk.handle_event('read V4')
+
+#def v4_write_handler(value):
+#	frequencyB = args[0]
 #	frequencyB = 1/args[0]		#try this line if it is not working chart of input signals says 1/PWM
 
 while True:
