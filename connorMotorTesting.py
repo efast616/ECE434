@@ -3,7 +3,7 @@ import RPi.GPIO as GPIO
 import time
 import blynklib
 
-BLYNK_AUTH= 'rtzVtLB2FQOCvrG16EfxvZPCh7KaFZ-I'
+BLYNK_AUTH= 'TC93qr2a6AvBZ9fB8dVu4-WKEj6-PTbp'
 
 blynk = blynklib.Blynk(BLYNK_AUTH)
 
@@ -33,18 +33,18 @@ def write_virtual_pin_handler(pin, value):
 
 @blynk.handle_event('write V7')			#turn the tank left
 def write_virtual_pin_handler(pin, value):
-        pwm0.start(round(defaultSpeed/1.5))
+        pwm0.start(round(defaultSpeed/1.75))
         pwm1.start(0)
         pwm2.start(0)
-        pwm3.start(round(defaultSpeed*offset/1.5))
+        pwm3.start(round(defaultSpeed*offset/1.75))
 
 
 
 @blynk.handle_event('write V8')
 def write_virtual_pin_handler(pin, value):	#turn the tank right
         pwm0.start(0)
-        pwm1.start(round(defaultSpeed/1.5))
-        pwm2.start(round(defaultSpeed*offset/1.5))
+        pwm1.start(round(defaultSpeed/1.75))
+        pwm2.start(round(defaultSpeed*offset/1.75))
         pwm3.start(0)
 
 @blynk.handle_event('write V9')                 #stop the tank
