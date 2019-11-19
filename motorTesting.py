@@ -33,29 +33,49 @@ def write_virtual_pin_handler(pin, value):
 
 @blynk.handle_event('write V6')			#drive the tank backward
 def write_virtual_pin_handler(pin, value):
-	GPIO.output(11, GPIO.LOW) 
+	GPIO.output(11, GPIO.LOW)
 	GPIO.output(13, GPIO.HIGH)
-	GPIO.output(15, GPIO.LOW) 
+	GPIO.output(15, GPIO.LOW)
 	GPIO.output(16, GPIO.HIGH)
 
 @blynk.handle_event('write V7')			#turn towards motor 2 side
 def write_virtual_pin_handler(pin, value):
-	GPIO.output(11, GPIO.HIGH) 
-	GPIO.output(13, GPIO.LOW)
-	GPIO.output(15, GPIO.LOW) 
-	GPIO.output(16, GPIO.HIGH)
+	flag = 1
+	if flag == 1:
+		GPIO.output(11, GPIO.HIGH)
+		GPIO.output(13, GPIO.LOW)
+		GPIO.output(15, GPIO.LOW)
+		GPIO.output(16, GPIO.HIGH)
+	if flag == 0:
+		GPIO.output(11, GPIO.LOW)
+		GPIO.output(13, GPIO.LOW)
+		GPIO.output(15, GPIO.LOW)
+		GPIO.output(16, GPIO.LOW)
+		time.sleep(20)
+		flag = 1
+
 
 @blynk.handle_event('write V8')
 def write_virtual_pin_handler(pin, value):	#turn towards motor 1 side
-	GPIO.output(11, GPIO.LOW)
-	GPIO.output(13, GPIO.HIGH)
-	GPIO.output(15, GPIO.HIGH)
-	GPIO.output(16, GPIO.LOW)
-
+	flag = 1
+	if flag == 1:
+		GPIO.output(11, GPIO.LOW)
+		GPIO.output(13, GPIO.HIGH)
+		GPIO.output(15, GPIO.HIGH)
+		GPIO.output(16, GPIO.LOW)
+		time.sleep(20)
+		flag = 0
+	if flag == 0:
+		GPIO.output(11, GPIO.LOW)
+		GPIO.output(13, GPIO.LOWw)
+		GPIO.output(15, GPIO.LOW)
+		GPIO.output(16, GPIO.LOW)
+		time.sleep(20)
+		flag = 1
 
 while True:
 	blynk.run()
-	time.sleep(sleeptime)
+#	time.sleep(sleeptime)
 #	GPIO.PWM(19, frequencyA)
 #	GPIO.PWM(20, frequencyA)
 #	GPIO.PWM(21, frequencyB)
